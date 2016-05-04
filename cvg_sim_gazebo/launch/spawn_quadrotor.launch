@@ -4,14 +4,14 @@
  <launch>
    <arg name="model" default="$(find cvg_sim_gazebo)/urdf/quadrotor.urdf.xacro"/>
    <arg name="x" default="0"/>
-   <arg name="y" default="0"/>
+   <arg name="y" default="2"/>
    <arg name="z" default="0.5"/>
    <arg name="R" default="0"/>
    <arg name="P" default="0"/>
-   <arg name="Y" default="0"/>
+   <arg name="Y" default="3.14"/>
    <!-- send the robot XML to param server -->
    <param name="robot_description" command="$(find xacro)/xacro.py '$(arg model)'" />
-   
+
    <!-- push robot_description to factory and spawn robot in gazebo -->
    <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
    args="-param robot_description
@@ -23,10 +23,12 @@
    -P '$(arg P)'
    -Y '$(arg Y)'
    -model quadrotor"
-     respawn="false" output="screen"/>
-     
+     respawn="false" output="screen">
+   </node>
+
+
    <!-- start robot state publisher -->
-   <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher" output="screen" >
+   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" >
      <param name="publish_frequency" type="double" value="50.0" />
      <param name="tf_prefix" type="string" value="" />
    </node>
@@ -38,4 +40,3 @@
    <!-- node name="hector_pose_estimation" pkg="hector_pose_estimation" type="hector_pose_estimation_node" output="screen"/-->
 
  </launch>
-   
