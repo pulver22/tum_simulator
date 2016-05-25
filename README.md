@@ -47,3 +47,7 @@ How to run a simulation:
     ```
     roslaunch cvg_sim_gazebo ardrone_testworld.launch
     ```
+####Extra
+
+In order to add marker model to gazebo, move the 'marker' folder to '~/.gazebo/models' .
+
