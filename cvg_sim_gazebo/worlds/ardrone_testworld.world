@@ -73,7 +73,7 @@
             <background>0.7 0.7 0.7 1</background>
             <shadows>1</shadows>
         </scene>
-        <model name='House 3'>
+<!--        <model name='House 3'>
             <static>1</static>
             <link name='link'>
                 <collision name='collision'>
@@ -558,7 +558,7 @@
             </link>
             <pose>5 5 0 0 -0 0</pose>
         </model>
-        <model name='marker'>
+    -->    <model name='marker'>
             <static>1</static>
             <link name='marker_link'>
                 <pose>0 0 0 0 0 0</pose>
@@ -598,7 +598,7 @@
             </link>
             <pose>-5 2 0.5 0 0 0</pose>
         </model>
-		<model name='marker2'>
+        <model name='marker2'>
             <static>1</static>
             <link name='marker_link'>
                 <pose>0 0 0 0 0 0</pose>
@@ -638,7 +638,7 @@
             </link>
             <pose>0 0 0.05 0 1.57 0</pose>
         </model>
-        <model name='nist_elevated_floor_120'>
+<!--        <model name='nist_elevated_floor_120'>
             <static>1</static>
             <link name='nist_elevated_floor_120'>
                 <pose>0 0 0 0 -0 0</pose>
@@ -758,11 +758,11 @@
             </link>
             <pose>11 3 0 0 -0 0</pose>
         </model>
-        <state world_name='default'>
+-->        <state world_name='default'>
             <sim_time>659 735000000</sim_time>
             <real_time>669 239415336</real_time>
             <wall_time>1390840556 284092517</wall_time>
-            <model name='House 1'>
+<!--            <model name='House 1'>
                 <pose>-4.18156 -5.60557 0 0 -0 3.12318</pose>
                 <link name='link'>
                     <pose>-4.18156 -5.60557 0 0 -0 3.12318</pose>
@@ -798,7 +798,7 @@
                     <wrench>0 0 0 0 -0 0</wrench>
                 </link>
             </model>
-            <model name='ground_plane'>
+-->            <model name='ground_plane'>
                 <pose>0 0 0 0 -0 0</pose>
                 <link name='link'>
                     <pose>0 0 0 0 -0 0</pose>
@@ -807,7 +807,7 @@
                     <wrench>0 0 0 0 -0 0</wrench>
                 </link>
             </model>
-            <model name='jersey_barrier'>
+<!--            <model name='jersey_barrier'>
                 <pose>3 -3 0 0 -0 0</pose>
                 <link name='link'>
                     <pose>3 -3 0 0 -0 0</pose>
@@ -861,7 +861,7 @@
                     <wrench>0 0 0 0 -0 0</wrench>
                 </link>
             </model>
-            <model name="marker" static="true">
+-->            <model name="marker" static="true">
                 <pose>9.01164 2.82223 0 0 -0 0</pose>
                 <link name="marker_link">
                     <pose>-5 2 0.5 0 0 0</pose>
@@ -870,7 +870,7 @@
                     <wrench>0 0 0 0 -0 0</wrench>
                 </link>
             </model>
-			<model name="marker2" static="true">
+            <model name="marker2" static="true">
                 <pose>0 0 0 0 -0 0</pose>
                 <link name="marker_link">
                     <pose>0 0 0.05 0 -1.57 0</pose>
