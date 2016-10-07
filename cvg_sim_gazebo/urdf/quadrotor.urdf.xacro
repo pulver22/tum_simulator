@@ -8,7 +8,7 @@
 
     <!-- Included URDF Files -->
     <xacro:include filename="$(find cvg_sim_gazebo)/urdf/quadrotor_base.urdf.xacro" />
-    
+
     <!-- Instantiate quadrotor_base_macro once (has no parameters atm) -->
     <quadrotor_base_macro />
 

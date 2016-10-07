@@ -45,6 +45,12 @@ xmlns:xacro="http://ros.org/wiki/xacro"
         <sonarTopic>sonar_height</sonarTopic>
         <topicName>cmd_vel</topicName>
       </plugin>
+
+      <!-- Gazebo plugin for ROS Control -->
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+
     </gazebo>
   </xacro:macro>
 </robot>

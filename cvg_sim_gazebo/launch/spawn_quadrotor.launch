@@ -2,7 +2,9 @@
 
 
  <launch>
-   <arg name="model" default="$(find cvg_sim_gazebo)/urdf/quadrotor.urdf.xacro"/>
+    <arg name="name" default="quadrotor"/>
+    <arg name="namespace_arg" default=""/>
+   <arg name="model" default="$(find cvg_sim_gazebo)/urdf/quadrotor_sensors.urdf.xacro"/>
    <arg name="x" default="0"/>
    <arg name="y" default="2"/>
    <arg name="z" default="0.5"/>
