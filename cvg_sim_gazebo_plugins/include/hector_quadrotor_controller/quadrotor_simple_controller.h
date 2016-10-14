@@ -34,7 +34,7 @@
 * change:
 * 1. Noise is add to the callback function: VelocityCallback
 * 2. Create a subscriber for rostopic /ardrone/navdata
-* 3. An additional force and torque calculation is added base on the robot state information in /ardrone/navdata 
+* 3. An additional force and torque calculation is added base on the robot state information in /ardrone/navdata
 *
 * Created on: Oct 22, 2012
 * Author: Hongrong huang
@@ -99,7 +99,7 @@ private:
   ros::Subscriber navdata_subscriber_;
   unsigned int navi_state;
   //***********************************
-  
+
   // void CallbackQueueThread();
   // boost::mutex lock_;
   // boost::thread callback_queue_thread_;
@@ -117,6 +117,8 @@ private:
 
   std::string link_name_;
   std::string namespace_;
+  std::string robot_namespace_;
+  std::string node_namespace_;
   std::string velocity_topic_;
   std::string imu_topic_;
   std::string state_topic_;

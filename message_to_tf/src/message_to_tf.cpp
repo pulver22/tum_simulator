@@ -8,6 +8,7 @@ std::string g_odometry_topic;
 std::string g_pose_topic;
 std::string g_imu_topic;
 std::string g_frame_id;
+std::string g_tf_prefix;
 std::string g_footprint_frame_id;
 std::string g_position_frame_id;
 std::string g_stabilized_frame_id;
@@ -123,10 +124,16 @@ int main(int argc, char** argv) {
   priv_nh.getParam("pose_topic", g_pose_topic);
   priv_nh.getParam("imu_topic", g_imu_topic);
   priv_nh.getParam("frame_id", g_frame_id);
+  priv_nh.getParam("tf_prefix", g_tf_prefix);
   priv_nh.getParam("footprint_frame_id", g_footprint_frame_id);
   priv_nh.getParam("position_frame_id", g_position_frame_id);
   priv_nh.getParam("stabilized_frame_id", g_stabilized_frame_id);
   priv_nh.getParam("child_frame_id", g_child_frame_id);
+
+  g_footprint_frame_id.insert(0, g_tf_prefix);
+  g_position_frame_id.insert(0, g_tf_prefix);
+  g_stabilized_frame_id.insert(0, g_tf_prefix);
+  g_child_frame_id.insert(0, g_tf_prefix);
 
   br = new tf::TransformBroadcaster;
 

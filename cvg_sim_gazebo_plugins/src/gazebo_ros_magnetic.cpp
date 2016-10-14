@@ -68,6 +68,7 @@ void GazeboRosMagnetic::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   else
     topic_ = _sdf->GetElement("topicName")->Get<std::string>();
 
+    /*
   if (!_sdf->HasElement("bodyName"))
   {
     link = _model->GetLink();
@@ -76,7 +77,8 @@ void GazeboRosMagnetic::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
   else {
     link_name_ = _sdf->GetElement("bodyName")->Get<std::string>();
     link = boost::dynamic_pointer_cast<physics::Link>(world->GetEntity(link_name_));
-  }
+  }*/
+  link =  _model->GetChildLink("base_link");
 
   if (!link)
   {
