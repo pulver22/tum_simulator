@@ -10,7 +10,7 @@
 
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-      <arg name="world_name" value="$(find cvg_sim_gazebo)/worlds/both_cameras_world.world"/>
+      <arg name="world_name" value="$(find cvg_sim_gazebo)/worlds/cooperative_world.world"/>
     </include>
 
 
