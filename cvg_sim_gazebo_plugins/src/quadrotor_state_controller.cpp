@@ -228,15 +228,18 @@ void GazeboQuadrotorStateController::Load(physics::ModelPtr _model, sdf::Element
   toggleCam_service = node_handle_->advertiseService(toggleCam_ops);
 
   // camera image data
-  //std::string cam_out_topic  = "/camera/image_raw";
   /*
+  // Original code
   std::string cam_out_topic  = "/ardrone/image_raw";
   std::string cam_front_in_topic = "/ardrone/front/image_raw";
   std::string cam_bottom_in_topic = "/ardrone/bottom/image_raw";
   */
-  std::string cam_out_topic  = "image_raw";
-  std::string cam_front_in_topic = "front/image_raw";
-  std::string cam_bottom_in_topic = "bottom/image_raw";
+
+  // CODE FOR MAKING AR_POSE WORKING: it needs /camera/etc. as topic
+  // ABSOLUTE PATH REQUIRED BY AR_POSE: should be changed accordingly to match proper video topic
+  std::string cam_out_topic  = "/camera/image_raw";
+  std::string cam_front_in_topic = "/ardrone/front/image_raw";
+  std::string cam_bottom_in_topic = "/ardrone/bottom/image_raw";
   std::string in_transport = "raw";
 
   camera_it_ = new image_transport::ImageTransport(*node_handle_);
@@ -253,15 +256,18 @@ void GazeboQuadrotorStateController::Load(physics::ModelPtr _model, sdf::Element
     ros::VoidPtr(), in_transport);
 
   // camera image data
-  //std::string cam_info_out_topic  = "/camera/camera_info";
   /*
+  // Original code
   std::string cam_info_out_topic  = "/ardrone/camera_info";
   std::string cam_info_front_in_topic = "/ardrone/front/camera_info";
   std::string cam_info_bottom_in_topic = "/ardrone/bottom/camera_info";
   */
-  std::string cam_info_out_topic  = "camera_info";
-  std::string cam_info_front_in_topic = "front/camera_info";
-  std::string cam_info_bottom_in_topic = "bottom/camera_info";
+
+  // CODE FOR MAKING AR_POSE WORKING: it needs /camera/etc. as topic
+  // ABSOLUTE PATH REQUIRED BY AR_POSE: should be changed accordingly to match proper video topic
+  std::string cam_info_out_topic  = "/camera/camera_info";
+  std::string cam_info_front_in_topic = "/ardrone/front/camera_info";
+  std::string cam_info_bottom_in_topic = "/ardrone/bottom/camera_info";
   camera_info_publisher_ = node_handle_->advertise<sensor_msgs::CameraInfo>(cam_info_out_topic,1);
 
   ros::SubscribeOptions cam_info_front_ops = ros::SubscribeOptions::create<sensor_msgs::CameraInfo>(
