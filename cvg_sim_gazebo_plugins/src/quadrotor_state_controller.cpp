@@ -125,7 +125,7 @@ void GazeboQuadrotorStateController::Load(physics::ModelPtr _model, sdf::Element
     link_name_ = _sdf->GetElement("bodyName")->Get<std::string>();
     link = boost::dynamic_pointer_cast<physics::Link>(world->GetEntity(link_name_));
   }*/
-  link =  _model->GetChildLink("base_link");
+  link =  _model->GetChildLink("uav_base_link");
 
   if (!link)
   {

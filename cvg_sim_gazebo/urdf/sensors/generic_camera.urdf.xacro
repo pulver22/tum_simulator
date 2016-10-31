@@ -90,7 +90,7 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
           <!-- ABSOLUTE PATH REQUIRED BY AR_POSE: should be changed accordingly to match proper video topic -->
           <imageTopicName>/${sim_name}/${name}/image_raw</imageTopicName>
           <cameraInfoTopicName>/${sim_name}/${name}/camera_info</cameraInfoTopicName>
-          <frameName>ardrone_base_${name}cam</frameName>
+          <frameName>/ardrone_base_${name}cam</frameName>
         </plugin>
       </sensor>
       <turnGravityOff>true</turnGravityOff>
