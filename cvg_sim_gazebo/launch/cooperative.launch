@@ -13,10 +13,11 @@
     </include>
 
     <!-- Spawn simulated quadrotor uav -->
-    <group ns="/uav1">
+    <group ns="uav1">
+        <param name="tf_prefix" value="uav1_tf"/>
         <include file="$(find cvg_sim_gazebo)/launch/spawn_quadrotor.launch">
-            <arg name="name" value="/uav1"/>
-            <arg name="namespace_arg" value="/uav1"/>
+            <arg name="name" value="uav1"/>
+            <arg name="namespace_arg" value="uav1"/>
             <arg name="x" value="1.0"/>
             <arg name="y" value="1.0"/>
         </include>
@@ -24,7 +25,9 @@
 
     <!-- Spawn simulated Husky A200 UGV -->
 
-    <group ns="/husky">
+    <group ns="husky">
+		<!-- if I remove the tf_prefix, the odom frame appear -->
+        <param name="tf_prefix" value=""/>
         <arg name="laser_enabled" default="true"/>
         <arg name="ur5_enabled" default="false"/>
         <arg name="kinect_enabled" default="false"/>
@@ -33,10 +36,10 @@
             <arg name="laser_enabled" value="$(arg laser_enabled)"/>
             <arg name="ur5_enabled" value="$(arg ur5_enabled)"/>
             <arg name="kinect_enabled" value="$(arg kinect_enabled)"/>
-            <arg name="name" value="/husky"/>
+            <arg name="name" value="husky"/>
             <arg name="x" value="0.0"/>
             <arg name="y" value="3.0"/>
-            <arg name="namespace_arg" value="/husky"/>
+            <arg name="namespace_arg" value="husky"/>
         </include>
     </group>
 

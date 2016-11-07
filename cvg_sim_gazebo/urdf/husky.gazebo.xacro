@@ -34,6 +34,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
                 <robotNamespace>/</robotNamespace>
                 <updateRate>50.0</updateRate>
                 <bodyName>base_link</bodyName>
+                <frameid>husky/base_link</frameid>
                 <topicName>imu/data</topicName>
                 <gaussianNoise>0</gaussianNoise>
                 <offset>0.0 0.0 0.0</offset>
@@ -60,7 +61,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
                 <updateRate>40</updateRate>
                 <robotNamespace>/</robotNamespace>
                 <bodyName>base_link</bodyName>
-                <frameId>base_link</frameId>
+                <frameId>husky/base_link</frameId>
                 <topicName>navsat/fix</topicName>
                 <offset>0.0 0.0 0.0</offset>
                 <velocityTopicName>navsat/vel</velocityTopicName>

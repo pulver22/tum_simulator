@@ -96,6 +96,8 @@ private:
 
   // extra robot navi info subscriber
   std::string navdata_topic_;
+  //for tum_ardrone
+  std::string navdata_topic_tum;
   ros::Subscriber navdata_subscriber_;
   unsigned int navi_state;
   //***********************************

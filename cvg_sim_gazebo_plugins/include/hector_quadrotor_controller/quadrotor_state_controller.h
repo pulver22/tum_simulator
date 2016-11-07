@@ -81,6 +81,8 @@ private:
   ros::Subscriber reset_subscriber_;
 
   ros::Publisher m_navdataPub;
+  //for tum_ardrone
+  ros::Publisher m_navdataPub_tum;
 
   // extra camera control command
   int                              m_selected_cam_num;
@@ -137,6 +139,8 @@ private:
   std::string land_topic_;
   std::string reset_topic_;
   std::string navdata_topic_;
+  //for tum_ardrone
+  std::string navdata_topic_tum;
 
   std::string imu_topic_;
   std::string sonar_topic_;

@@ -95,10 +95,18 @@ void GazeboQuadrotorStateController::Load(physics::ModelPtr _model, sdf::Element
     reset_topic_ = _sdf->GetElement("resetTopic")->Get<std::string>();
 
   if (!_sdf->HasElement("navdataTopic"))
-    //navdata_topic_ = "/ardrone/navdata";
-    navdata_topic_ = "navdata";
+  {
+  	//navdata_topic_ = "/ardrone/navdata"; ORIGINAL
+  	navdata_topic_ = "navdata";
+  	//required from tum_ardrone
+  	navdata_topic_tum = "/ardrone/navdata";
+  }
   else
-    navdata_topic_ = _sdf->GetElement("navdataTopic")->Get<std::string>();
+  {
+  	navdata_topic_ = _sdf->GetElement("navdataTopic")->Get<std::string>();
+  	//required frim tum_ardrone
+  	navdata_topic_tum = "/ardrone/navdata";
+  }
 
   if (!_sdf->HasElement("imuTopic"))
     imu_topic_.clear();
@@ -125,7 +133,7 @@ void GazeboQuadrotorStateController::Load(physics::ModelPtr _model, sdf::Element
     link_name_ = _sdf->GetElement("bodyName")->Get<std::string>();
     link = boost::dynamic_pointer_cast<physics::Link>(world->GetEntity(link_name_));
   }*/
-  link =  _model->GetChildLink("uav_base_link");
+  link =  _model->GetChildLink("base_link");
 
   if (!link)
   {
@@ -177,6 +185,8 @@ void GazeboQuadrotorStateController::Load(physics::ModelPtr _model, sdf::Element
 
     m_navdataPub = node_handle_->advertise< ardrone_autonomy::Navdata >( navdata_topic_ , 25 );
 
+    //required by tum_ardrone
+    m_navdataPub_tum = node_handle_->advertise< ardrone_autonomy::Navdata >( navdata_topic_tum, 25);
 
   // subscribe imu
   if (!imu_topic_.empty())
@@ -494,6 +504,8 @@ void GazeboQuadrotorStateController::Update()
 //  last_navdata = navdata;
 
   m_navdataPub.publish( navdata );
+  // for tum_ardrone
+  m_navdataPub_tum.publish( navdata );
 
   // save last time stamp
   last_time = sim_time;

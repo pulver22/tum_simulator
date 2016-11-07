@@ -32,12 +32,14 @@
    <!-- start robot state publisher -->
    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" >
      <param name="publish_frequency" type="double" value="50.0" />
-     <param name="tf_prefix" type="string" value="" />
+     <param name="tf_prefix" type="string" value="uav1_tf" />
    </node>
 
    <node name="ground_truth_to_tf" pkg="message_to_tf" type="message_to_tf" output="screen">
      <param name="odometry_topic" value="ground_truth/state" />
      <param name="frame_id" value="nav" />
+     <param name="tf_prefix" type="string" value="uav1_tf/"/>
+     <param name="child_frame_id" type="string" value="base_link"/>
    </node>
    <!-- node name="hector_pose_estimation" pkg="hector_pose_estimation" type="hector_pose_estimation_node" output="screen"/-->
 
