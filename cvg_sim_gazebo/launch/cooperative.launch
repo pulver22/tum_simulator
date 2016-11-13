@@ -12,6 +12,12 @@
         <arg name="world_name" value="$(find cvg_sim_gazebo)/worlds/cooperative_world.world"/>
     </include>
 
+    <node pkg="tf" type="static_transform_publisher" name="world_to_husky"
+    args="0 3 0 0 0 0 world odom 10" />
+
+    <node pkg="tf" type="static_transform_publisher" name="world_to_ardrone"
+    args="0 0 0 0 0 0 world uav1_tf/odom 10" />
+
     <!-- Spawn simulated quadrotor uav -->
     <group ns="uav1">
         <param name="tf_prefix" value="uav1_tf"/>
