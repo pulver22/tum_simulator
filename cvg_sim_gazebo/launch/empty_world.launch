@@ -4,4 +4,6 @@
 
   <node name="gazebo_gui" pkg="gazebo" type="gui" respawn="false" output="screen">
   </node>
+
+
 </launch>
