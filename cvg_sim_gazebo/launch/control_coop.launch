@@ -5,7 +5,7 @@
 
   <node name="base_controller_spawner" pkg="controller_manager" type="spawner" args="husky_joint_publisher husky_velocity_controller --shutdown-timeout 3"/>
 
-  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+  <node pkg="robot_localization" type="ukf_localization_node" name="ekf_localization">
     <rosparam command="load" file="$(find cvg_sim_gazebo)/config/localization_coop.yaml" />
     <remap from="/husky/imu/data" to="/imu/data"/>
   </node>
